@@ -1,0 +1,32 @@
+[
+  {
+    "color": "#4b00bb",
+    "icon": "twitch",
+    "content": "Twitch",
+    "link": "https://www.twitch.tv/the_sea_goat"
+  },
+  {
+    "color": "#FF0000",
+    "icon": "youtube",
+    "content": "YouTube",
+    "link": "https://www.youtube.com/@TheSeaGoat"
+  },
+  {
+    "color": "#7289da",
+    "icon": "discord",
+    "content": "Discord",
+    "link": "https://discord.gg/SJFU2jyC5R"
+  },
+  {
+    "color": "#E1306C",
+    "icon": "instagram",
+    "content": "Instagram",
+    "link": "https://www.instagram.com/theseagoatmain/"
+  },
+  {
+    "color": "#3b5998",
+    "icon": "facebook",
+    "content": "Facebook",
+    "link": "https://www.facebook.com/profile.php?id=100086401726425"
+  }
+]
