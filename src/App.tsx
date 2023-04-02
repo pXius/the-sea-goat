@@ -28,11 +28,11 @@ function App() {
 
   const StyledBlob = styled.div`
     background-color: white;
-    height: 15vmax;
+    height: 13vmax;
     aspect-ratio: 1;
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 25%;
     translate: -50% -50%;
     border-radius: 50%;
     background: linear-gradient(to right, rgb(33,150,243), dodgerblue);
@@ -62,7 +62,7 @@ function App() {
     top: 0;
     left: 0;
     z-index: -2;
-    backdrop-filter: blur(8vmax);
+    backdrop-filter: blur(5vmax);
   `
 
   return (
