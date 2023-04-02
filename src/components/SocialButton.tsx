@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Icon } from "semantic-ui-react";
 import styled from "styled-components";
 
@@ -10,6 +10,7 @@ interface SocialButtonProps {
 }
 
 const SocialButton = ({ color, icon, content, link }: SocialButtonProps) => {
+  const [isHover, setIsHover] = useState(false);
 
   const hexToRgbA = ({ hex, opacity }: { hex: string, opacity: string }) => {
     let c: any;
@@ -77,7 +78,7 @@ const SocialButton = ({ color, icon, content, link }: SocialButtonProps) => {
     flex-grow: 1;
     gap: 4rem;
     position: relative;
-    z-index: 3;
+    z-index: 0;
     margin: 1rem;
     padding-bottom: 4rem;
     border: 1px solid rgb(33 150 243 / 50%);
@@ -86,19 +87,17 @@ const SocialButton = ({ color, icon, content, link }: SocialButtonProps) => {
   `
 
   const StyledSocialOverlay = styled.div`    
-    background: linear-gradient(
-      // rgb(33 150 243 / 0.15),
+    background: ${!isHover ? `linear-gradient(      
       ${hexToRgbA({ hex: color, opacity: '0.30' })},
       ${hexToRgbA({ hex: color, opacity: '0.30' })} 3px,
       transparent 3px,
       transparent 9px
-    );
+    );` : hexToRgbA({ hex: color, opacity: '0.30' })}}    
     background-size: 100% 9px;
     height: 100%;
     width: 100%;
-    animation: pan-overlay 12s infinite linear;
-    position: absolute;
-    z-index: 2;
+    animation: ${!isHover && 'pan-overlay 12s infinite linear'};
+    position: absolute;    
     left: 0px;
     top: 0px;
     
@@ -110,19 +109,26 @@ const SocialButton = ({ color, icon, content, link }: SocialButtonProps) => {
       to {
         background-position: 0% -100%;
       }
-    }    
+    }        
   `
 
   const StyledSocialIcon = styled(Icon)`
-  color: white;
-  text-shadow: 0px 0px 0.1rem white;
+    color: white;
+    text-shadow: 0px 0px 0.1rem white;   
+    z-index:20;     
   `
 
+  const onMouseEnterHandler = () => {
+    setIsHover(true);
+  }
+  const onMouseLeaveHandler = () => {
+    setIsHover(false);
+  }
 
   return (
-    <StyledSocialContainer>
-      <StyledSocialOverlay color={color} />
+    <StyledSocialContainer onMouseEnter={onMouseEnterHandler} onMouseLeave={onMouseLeaveHandler}>
       <StyledSocialContent>
+        <StyledSocialOverlay color={color} />
         <StyledSocialIcon size='large' name={icon} />
       </StyledSocialContent>
     </StyledSocialContainer >
