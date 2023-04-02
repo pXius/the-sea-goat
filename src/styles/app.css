@@ -1,4 +1,9 @@
 body {
   background: rgb(39, 35, 61); /*Matches darkest part of logo*/
-  overflow: hidden;
+  overflow: auto;
+  overflow-x: hidden;
+
+  @media only screen and (min-width: 1023px) {
+    overflow: hidden;
+  }
 }
